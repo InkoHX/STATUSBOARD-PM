@@ -27,13 +27,12 @@ class UpdateScoreboardTask extends Task
 
     public function onRun(int $currentTick)
     {
-        $scoreboard = new Scoreboard(Main::$instance->getServer()->getPluginManager()->getPlugin("ScoreboardsPE")->getPlugin(), $this->randomColor() . "≫    STATUSBOARD    ≪", ScoreboardAction::CREATE);
-        $scoreboard->create(ScoreboardDisplaySlot::SIDEBAR, ScoreboardSort::DESCENDING);
-        $scoreboard->setLine($this->player, 1, $this->randomColor() . "≫ Name " . $this->player->getName() . " ≪");
-        $scoreboard->setLine($this->player, 2, $this->randomColor() . "≫ Online " . count(Main::$instance->getServer()->getOnlinePlayers()) . " / " . Main::$instance->getServer()->getMaxPlayers() . " ≪");
-        $scoreboard->setLine($this->player, 4, $this->randomColor() . "≫ Ping " . $this->player->getPing() . "ms ≪");
-        $scoreboard->setLine($this->player, 5, $this->randomColor() . "≫ TPS " . Main::$instance->getServer()->getTicksPerSecond() . " ≪");
-        $scoreboard->setLine($this->player, 7, $this->randomColor() . "≫ Dev: InkoHX ≪");
+        $this->scoreboard->setLine($this->player, 1, $this->randomColor() . "  Name " . $this->player->getName() . "     ");
+        $this->scoreboard->setLine($this->player, 2, $this->randomColor() . "  Online " . count(Main::$instance->getServer()->getOnlinePlayers()) . " / " . Main::$instance->getServer()->getMaxPlayers() . " ");
+        $this->scoreboard->setLine($this->player, 4, $this->randomColor() . "  Ping " . $this->player->getPing() . "ms     ");
+        $this->scoreboard->setLine($this->player, 5, $this->randomColor() . "  TPS " . Main::$instance->getServer()->getTicksPerSecond() . "     ");
+        $this->scoreboard->setLine($this->player, 6, "\n");
+        $this->scoreboard->setLine($this->player, 7, $this->randomColor() . "     > Dev: InkoHX <");
     }
 
     private function randomColor(): string
