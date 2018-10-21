@@ -2,5 +2,7 @@ name: STATUSBOARD
 main: inkohx\statusboard\Main
 api: 3.0.0
 version: 1.0.0
+prefix: STATUSBOARD
+author: InkoHX
 softdepend:
 - ScoreboardsPE
