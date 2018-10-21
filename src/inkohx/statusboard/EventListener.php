@@ -4,6 +4,7 @@
 namespace inkohx\statusboard;
 
 
+use inkohx\statusboard\task\UpdateScoreboardTask;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerJoinEvent;
 use Miste\scoreboardspe\API\{
@@ -23,5 +24,6 @@ class EventListener implements Listener
         $scoreboard->setLine($player, 4, TextFormat::GREEN . "≫ Ping " . $player->getPing() . "ms ≪");
         $scoreboard->setLine($player, 5, TextFormat::GREEN . "≫ TPS " . Main::$instance->getServer()->getTicksPerSecond() . " ≪");
         $scoreboard->setLine($player, 7, TextFormat::GREEN . "≫ Dev: InkoHX ≪");
+        Main::$instance->getScheduler()->scheduleRepeatingTask(new UpdateScoreboardTask($scoreboard, $player), 60);
     }
 }
