@@ -19,6 +19,7 @@ class EventListener implements Listener
         $player = $event->getPlayer();
         $scoreboard = new Scoreboard(Main::$instance->getServer()->getPluginManager()->getPlugin("ScoreboardsPE")->getPlugin(), TextFormat::GREEN . "≫    STATUSBOARD    ≪", ScoreboardAction::CREATE);
         $scoreboard->create(ScoreboardDisplaySlot::SIDEBAR, ScoreboardSort::DESCENDING);
+        $scoreboard->addDisplay($player, ScoreboardDisplaySlot::SIDEBAR, ScoreboardSort::ASCENDING);
         $scoreboard->setLine($player, 1, TextFormat::GREEN . "≫ Name " . $player->getName() . " ≪");
         $scoreboard->setLine($player, 2, TextFormat::GREEN . "≫ Online " . count(Main::$instance->getServer()->getOnlinePlayers()) . " / " . Main::$instance->getServer()->getMaxPlayers() . " ≪");
         $scoreboard->setLine($player, 4, TextFormat::GREEN . "≫ Ping " . $player->getPing() . "ms ≪");
