@@ -27,12 +27,12 @@ class UpdateScoreboardTask extends Task
 
     public function onRun(int $currentTick)
     {
-        $this->scoreboard->setLine($this->player, 1, $this->randomColor() . "  Name " . $this->player->getName() . "     ");
-        $this->scoreboard->setLine($this->player, 2, $this->randomColor() . "  Online " . count(Main::$instance->getServer()->getOnlinePlayers()) . " / " . Main::$instance->getServer()->getMaxPlayers() . " ");
-        $this->scoreboard->setLine($this->player, 4, $this->randomColor() . "  Ping " . $this->player->getPing() . "ms     ");
-        $this->scoreboard->setLine($this->player, 5, $this->randomColor() . "  TPS " . Main::$instance->getServer()->getTicksPerSecond() . "     ");
-        $this->scoreboard->setLine($this->player, 6, "\n");
-        $this->scoreboard->setLine($this->player, 7, $this->randomColor() . "     > Dev: InkoHX <");
+        $this->scoreboard->setLine(1, $this->randomColor() . "  Name " . $this->player->getName() . "     ");
+        $this->scoreboard->setLine(2, $this->randomColor() . "  Online " . count(Main::$instance->getServer()->getOnlinePlayers()) . " / " . Main::$instance->getServer()->getMaxPlayers() . " ");
+        $this->scoreboard->setLine(4, $this->randomColor() . "  Ping " . $this->player->getPing() . "ms     ");
+        $this->scoreboard->setLine(5, $this->randomColor() . "  TPS " . Main::$instance->getServer()->getTicksPerSecond() . "     ");
+        $this->scoreboard->setLine(6, "\n");
+        $this->scoreboard->setLine(7, $this->randomColor() . "     > Dev: InkoHX <");
     }
 
     private function randomColor(): string
